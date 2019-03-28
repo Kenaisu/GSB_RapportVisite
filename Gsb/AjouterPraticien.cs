@@ -109,7 +109,14 @@ namespace Gsb
 
         }
 
-        private void c_typePra_SelectedIndexChanged(object sender, EventArgs e)
+        public void saisie(ref string s1, ref string s2)
+        {
+            this.ShowDialog();
+            s1 = nomPra;
+            s2 = prenomPra;
+        }
+
+            private void c_typePra_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (c_typePra.Text == "Médecin Hospitalier")
             {

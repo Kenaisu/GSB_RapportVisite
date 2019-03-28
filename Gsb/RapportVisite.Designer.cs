@@ -232,6 +232,7 @@
             this.c_connaissance.Name = "c_connaissance";
             this.c_connaissance.Size = new System.Drawing.Size(95, 24);
             this.c_connaissance.TabIndex = 24;
+            this.c_connaissance.SelectedIndexChanged += new System.EventHandler(this.c_connaissance_SelectedIndexChanged);
             // 
             // c_confiance
             // 
