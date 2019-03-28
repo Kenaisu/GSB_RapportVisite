@@ -14,22 +14,24 @@ namespace Gsb
     {
         private string login;
         private string motDepasse;
-        
+        private string natuser;
 
-        public Selection(string log, string mdp)
+
+        public Selection(string log, string mdp, string natUser)
         {
             InitializeComponent();
             login = log;
             motDepasse = mdp;
             l_showusername.Text = login;
-            
+            natuser = natUser;
+
             //créerUnRapportToolStripMenuItem.Hide();
         }
 
         private void créerUnRapportToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             this.Hide();
-            RapportVisite nouveauRapport = new RapportVisite(login, motDepasse);
+            RapportVisite nouveauRapport = new RapportVisite(login, motDepasse, natuser);
             nouveauRapport.ShowDialog();
             this.Close();
         }
@@ -41,10 +43,20 @@ namespace Gsb
 
         private void voirRapportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();            
-            VoirRapportVisite voirRapport = new VoirRapportVisite(login, motDepasse);
-            voirRapport.ShowDialog();
-            this.Close();
+            if (natuser == "visiteur")
+            {
+                this.Hide();
+                VoirRapportVisiteVisiteur voirRapportV = new VoirRapportVisiteVisiteur(login);
+                voirRapportV.ShowDialog();
+                this.Close();
+            }
+            else if (natuser == "responsable" || natuser == "admin")
+            {
+                this.Hide();
+                VoirRapportVisite voirRapport = new VoirRapportVisite(login, natuser);
+                voirRapport.ShowDialog();
+                this.Close();
+            }
         }
         
         private void b_quit_Click(object sender, EventArgs e)

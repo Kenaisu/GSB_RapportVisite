@@ -16,6 +16,7 @@ namespace Gsb
         string chaineConnexion = "datasource=127.0.0.1;port=3306;Database=applicationppe;username=root;password=;SslMode=none";
         private string login;
         private string motDePasse;
+        private string natuser;
 
         string nomPraticien;
 
@@ -34,12 +35,13 @@ namespace Gsb
         string str1 = null;
         string str2 = null;
 
-        public RapportVisite(string log, string mdp)
+        public RapportVisite(string log, string mdp, string natUser)
         {
             InitializeComponent();
 
             login = log;
             motDePasse = mdp;
+            natuser = natUser;
 
             //t_numRapport.Text = Nom;
             //textBox2.Text = Prenom;
@@ -629,7 +631,7 @@ namespace Gsb
                         //////////////////////////////////////////////////////////////////////////////////////
                         MessageBox.Show("Rapport de visite créé.");
 
-                        Selection selection = new Selection(login, motDePasse);
+                        Selection selection = new Selection(login, motDePasse, natuser);
                         selection.Show();
                         this.Close();
                         //fermeture du formulaire.
@@ -694,7 +696,7 @@ namespace Gsb
         //private void b_close_Click(object sender, EventArgs e, string login, string motDePasse)
         private void b_close_Click(object sender, EventArgs e)
         {
-            Selection selection = new Selection(login, motDePasse);
+            Selection selection = new Selection(login, motDePasse, natuser);
             selection.Show();
             this.Close();
         }

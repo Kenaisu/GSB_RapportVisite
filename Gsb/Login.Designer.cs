@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.t_login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,6 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.error_login = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_mdp = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.error_login)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_mdp)).BeginInit();
             this.SuspendLayout();
             // 
             // t_login
@@ -47,6 +52,7 @@
             this.t_login.Size = new System.Drawing.Size(180, 22);
             this.t_login.TabIndex = 0;
             this.t_login.Text = "Andre";
+            this.t_login.TextChanged += new System.EventHandler(this.t_login_TextChanged);
             // 
             // label1
             // 
@@ -120,6 +126,14 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Andre";
             // 
+            // error_login
+            // 
+            this.error_login.ContainerControl = this;
+            // 
+            // error_mdp
+            // 
+            this.error_mdp.ContainerControl = this;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -139,6 +153,8 @@
             this.Name = "Login";
             this.Text = "Connexion";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.error_login)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_mdp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +170,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider error_login;
+        private System.Windows.Forms.ErrorProvider error_mdp;
     }
 }
 
